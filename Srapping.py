@@ -15,18 +15,20 @@ def cleanhtml(raw_html):
 	cleantext = re.sub(cleanr, '', raw_html)
 	return cleantext
 
+######################################## INTERFACE ##################################################
+
 fenetre = Tk()
 fenetre.title('SERVEUR PROFESSIONNEL DE DONNEES CADASTRALES')
 
 label = Label(fenetre, text="SERVEUR PROFESSIONNEL DE DONNEES CADASTRALES", padx=10, pady=10)
 label.pack()
 spdc = tkSimpleDialog.askstring("SPDC", "Quel est votre cookie SPDC ?")
-# print spdc
 lemondgfip = tkSimpleDialog.askstring("LEMONDGFIP", "Quel est votre cookie LEMONDGFIP ?")
-# print lemondgfip
 QUITTER = Button(fenetre, text ='QUITTER', command = quit)
 QUITTER.pack()
 
+
+######################################## COOKIES ##################################################
 
 
 cookies = 	{
@@ -52,10 +54,12 @@ cookies = 	{
 				'lemondgfip': lemondgfip
 			}
 
+
+######################################## PARSING ##################################################
+
+
 result = open("resultats.csv", "w+")
-# data = open('data.csv', 'r')
 data = tkFileDialog.askopenfilename(title="Ouvrir votre document",filetypes=[('txt files','.csv'),('all files','.*')])
-# print data
 d = open(data, 'r')
 for string in d:
 	string = string.rstrip('\r\n')
@@ -73,7 +77,14 @@ for string in d:
 				}
 
 
+######################################## REQUEST ##################################################
+
+
 	r = requests.get('http://spdc.dgfip.finances.gouv.fr/cdc_titulaires.asp', cookies=cookies, params=payload)
+
+
+######################################## DATA RECOVERY ##################################################
+
 
 	file = r.content.splitlines()[50:58]
 
@@ -81,38 +92,8 @@ for string in d:
 		if line == "\n":
 			line.delete()
 		result.write(cleanhtml(line.strip()) + ', ')
-		# print(cleanhtml(line.strip()))
 	result.write("\n")
 	time.sleep(5)
 
 tkMessageBox.showinfo("Operation Reussie", "Un fichier 'resultats.csv' , avec tous vos resultats, vient d'etre cree !")
 fenetre.mainloop()
-
-
-
-
-#########################################################################################
-
-# f = open('cookies', 'r')
-# spdc = str(f.readline()).rstrip('\n')
-# lemondgfip = str(f.readline()).rstrip('\n')
-# jamyDNStructure = str(f.readline()).rstrip('\n')
-# jamyDNuser = str(f.readline()).rstrip('\n')
-# f.close()
-# print jamyDNStructure
-# print jamyDNuser
-
-
-# print (file)
-
-
-# result = file.readlines()
-# file.seek(0)
-# for i in result:
-#     if i != "\n":
-#         file.write(i)
-# file.truncate()
-# for line in file:
-# 	if line == "\n":
-# 	result.write(cleanhtml(line.strip()) + ', ')
-# 	print(cleanhtml(line.strip()))
