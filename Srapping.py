@@ -20,8 +20,6 @@ def cleanhtml(raw_html):
 fenetre = Tk()
 fenetre.title('SERVEUR PROFESSIONNEL DE DONNEES CADASTRALES')
 
-label = Label(fenetre, text="SERVEUR PROFESSIONNEL DE DONNEES CADASTRALES", padx=10, pady=10)
-label.pack()
 spdc = tkSimpleDialog.askstring("SPDC", "Quel est votre cookie SPDC ?")
 lemondgfip = tkSimpleDialog.askstring("LEMONDGFIP", "Quel est votre cookie LEMONDGFIP ?")
 QUITTER = Button(fenetre, text ='QUITTER', command = quit)
