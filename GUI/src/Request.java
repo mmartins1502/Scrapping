@@ -61,8 +61,8 @@ public class Request{
 		StringBuffer response = new StringBuffer();
 
 		while ((inputLine = in.readLine()) != null) {
-			response.append(inputLine);
-			response.append("\n");
+			response.append(inputLine + "\n");
+//			response.append("\n");
 		}
 		in.close();
 		return response.toString();
