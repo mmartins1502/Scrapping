@@ -2,6 +2,10 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.JPanel;
  
+
+  		//////////////////////////////////////////////PARAMETRAGE DE L'IMAGE DE FOND//////////////////////////////////////////////
+
+
 public class ImagePanel extends JPanel {
  
     private static final long serialVersionUID = 1L;

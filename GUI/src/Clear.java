@@ -9,13 +9,12 @@ public class Clear {
 	public Clear(String page, BufferedWriter result, String[] code) {
 		String raison = "Raison sociale";
 		String sexe = "Sexe";
-		System.out.printf("/////////////////////CLEAR HTML/////////////////////\n\n");
 		
   		//////////////////////////////////////////////COPROPRIETE//////////////////////////////////////////////
 
 		if (page.contains(raison) == true)
 		{
-			System.out.printf("Raison Sociale\n\n");
+			// System.out.printf("Raison Sociale\n\n");
 			
 			int Error = 0;
 			List<String> lines = new ArrayList<String>();
@@ -24,7 +23,7 @@ public class Clear {
       		
       		
 
-      		//////////////////////////////////////////////SUPPRESSION DU HTML DE DEBUT DE PAGE//////////////////////////////////////////////
+      		///////////////////// SUPPRESSION DU HTML DE DEBUT DE PAGE
   
       		
       		
@@ -39,7 +38,7 @@ public class Clear {
       		}
       			
           	
-      		//////////////////////////////////////////////SUPPRESSION DU HTML DE FIN DE PAGE//////////////////////////////////////////////
+      		///////////////////// SUPPRESSION DU HTML DE FIN DE PAGE
       		
       		int decount = lines.size();
       		for (int i = decount - 1; i > (decount - 22); i--) {
@@ -51,7 +50,7 @@ public class Clear {
   			}
       		
       		
-      		/////////////////////////////////////////////SUPPRESSION DU HTML PARMIS LES INFOS///////////////////////////////////////////////
+      		///////////////////// SUPPRESSION DU HTML PARMIS LES INFOS
       		
 
       		
@@ -81,11 +80,11 @@ public class Clear {
   		    
    
   		    
-      		/////////////////////////////////////////////ECRITURE DES INFOS DANS UN FICHIER///////////////////////////////////////////////
+      		///////////////////// ECRITURE DES INFOS DANS UN FICHIER
 
     
   		    
-  		    System.out.println(str);
+  		    // System.out.println(str);
   		    try {
   					result.write("Parcelle : "+code[0]+" "+code[1]+" "+code[2]+" "+code[3]+"\n");
   					result.write("Raison Sociale, Numero SIREN, Sigle, Droit, Adresse des titulaires de droit\n");
@@ -106,7 +105,7 @@ public class Clear {
 
 		else if (page.contains(sexe) == true)
 		{
-			System.out.printf("Monopropriete\n\n");
+			// System.out.printf("Monopropriete\n\n");
 			
 			int Error = 0;
 			List<String> lines = new ArrayList<String>();
@@ -115,7 +114,7 @@ public class Clear {
       		
       		
 
-      		//////////////////////////////////////////////SUPPRESSION DU HTML DE DEBUT DE PAGE//////////////////////////////////////////////
+      		///////////////////// SUPPRESSION DU HTML DE DEBUT DE PAGE
   
       		
       		
@@ -131,7 +130,7 @@ public class Clear {
       		
       		
       	
-      		//////////////////////////////////////////////SUPPRESSION DU HTML DE FIN DE PAGE//////////////////////////////////////////////
+      		///////////////////// SUPPRESSION DU HTML DE FIN DE PAGE
       		
       		int decount = lines.size();
       		for (int i = decount - 1; i > (decount - 24); i--) {
@@ -142,10 +141,8 @@ public class Clear {
       			}
   			}
 
-   		
       		
-      		
-      		/////////////////////////////////////////////SUPPRESSION DU HTML PARMIS LES INFOS///////////////////////////////////////////////
+      		///////////////////// SUPPRESSION DU HTML PARMIS LES INFOS
       		
 
       		
@@ -178,12 +175,12 @@ public class Clear {
   		    str += "\n";
   		    
   		    
-      		/////////////////////////////////////////////ECRITURE DES INFOS DANS UN FICHIER///////////////////////////////////////////////
+      		///////////////////// ECRITURE DES INFOS DANS UN FICHIER
 
   		    
   		    
   		    
-  		    System.out.println(str);
+  		    // System.out.println(str);
   		    try {
   					result.write("Parcelle : "+code[0]+" "+code[1]+" "+code[2]+" "+code[3]+"\n");
   					result.write("Nom / Prénom, Sexe, Date de naissance, Lieu de naissance, Nom et prénom du conjoint, Droit, Adresse des titulaires de droit\n");
